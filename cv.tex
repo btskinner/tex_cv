@@ -315,10 +315,15 @@ language=american]{biblatex}
 % PUBLICATIONS
 % ------------------------------------------------------------------------------
 
+% Use the same keyword that you've placed in your bib file entry to
+% filter only those references you want to place here.
+
 \begin{refsection}
 \section*{Publications}
-\nocite{*}
-\printbibliography[heading = none, keyword = article, env = mybib]
+\nocite{*}                          % cite everything
+\printbibliography[heading = none,  % no heading (e.g., "References")
+keyword = article,                  % FILTER BY THIS KEYWORD
+env = mybib]                        % Use mybib style
 \end{refsection}
 
 % ------------------------------------------------------------------------------
@@ -335,16 +340,20 @@ language=american]{biblatex}
 % PRESENTATIONS
 % ------------------------------------------------------------------------------
 
+% This section makes use of the "check = recent" option, which you can
+% also do in the other sections.
+
 \section*{Presentations}
 \subsection*{Peer-reviewed conference presentations}
 \begin{refsection}
 \nocite{*}
 \printbibliography[heading = none,
-keyword = conference,
-keyword = peer,
+keyword = conference,               % must have "conference"... 
+keyword = peer,                     % and "peer" to differentiate from "invited"
 env = mybib,
-check = recent]
-\end{refsection}
+check = recent]                     % check year filter from above and only add
+\end{refsection}                    % those entries that come after
+
 
 % ------------------------------------------------------------------------------
 % TEACHING EXPERIENCE
@@ -376,6 +385,8 @@ YYYY & COURSE NUM: \textit{Course name} \\
 % FELLOWSHIPS AND HONORS
 % ------------------------------------------------------------------------------
 
+% Again, use a table for nicely aliged elements
+
 \section*{Awards, Fellowships, and Honors}
 \begin{tabularx}{\linewidth}{>{\RR}p{1in}>{\RR}X>{\RL}p{.85in}}
 YYYY & Honor \\
@@ -384,7 +395,7 @@ YYYY - YYYY & Fellowship & \$ AMOUNT \\ % if normal in your field
 \end{tabularx}
 
 % ------------------------------------------------------------------------------
-% professional memberships
+% PROFESSIONAL MEMBERSHIPS
 % ------------------------------------------------------------------------------
 
 % This time the list is separated by bullets
