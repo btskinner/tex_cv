@@ -17,6 +17,9 @@ compile and update your CV in a consistent manner.
   comes first alphabetically).  
 * Citations convert links in `Url` field (and `Doi` and `ISBN`) to
   linked titles in citation.  
+* Works can be limited to only recent publications, presentations,
+  etc., using the `\recentyear{}` macro in the top of the file.  
+* Non-automated sections use lists or tables to make clean layout.
 
 ## Compile
 
@@ -59,10 +62,10 @@ make cleanall
 
 ## NOTE
 
-You may need to download non-free fonts if you haven't already.  
-Use the instructions here,
-[http://www.tug.org/fonts/getnonfreefonts/](http://www.tug.org/fonts/getnonfreefonts/) to download and install
-the `getnonfreefonts` command. Then use:
+You may need to download non-free fonts if you haven't already. Use the instructions here,
+[http://www.tug.org/fonts/getnonfreefonts/](http://www.tug.org/fonts/getnonfreefonts/)
+to download and install the `getnonfreefonts` command. Then in the
+terminal do:
 
 ```shell
 sudo getnonfreefonts --user garamond garamondx
