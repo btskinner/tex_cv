@@ -1,68 +1,79 @@
 \documentclass[11pt]{article}
 
+% Created by @btskinner (GitHub)
+
+% -- NOTES -----------------------------
+
+% Adjust this template as needed to create a CV that meets your
+% specific needs. Add / delete / move the sections in the
+% document body below to make a personalized CV. In general, sections
+% that need user input versus those that should be left as is (except
+% by more advanced users who want to fiddle with details of the
+% template) are separated like this:
+%
+% - Commented sections using "====" are for user modification.
+% - Commented sections using "----" do not need to changed.
+%
+% This template has been munged together from lots of little code
+% snippets over the years, so I can't take complete credit. I've tried
+% to attribute blocks of code I took from elsewhere.
+
 % ==============================================================================
 % USER SETTINGS: CHANGE THINGS HERE
 % ==============================================================================
 
-% -------------------------------
+% ======================================
 % PERSONAL INFO
-% -------------------------------
+% ======================================
+
+% Change the value in the second set of {} to you information. If you
+% want multiple lines (like for the address), use \\ to split lines.
 
 \newcommand{\myname}{First M. Last}     % your name
 \newcommand{\websiteurl}{{https://github.com/btskinner/tex_cv}} % your site url
-\newcommand{\websitename}{me.com}       % short name for printing that matches
+\newcommand{\websitename}{me.com}       % short url name for printing
 \newcommand{\phone}{000.000.0000}       % your phone number
 \newcommand{\email}{me@university.edu}  % your email
-\newcommand{\address}{                  % your address (\\ split lines)
-  University Hall \\
-  PO Box 00000 \\            
-  City, ST
+\newcommand{\address}{                  % NB: Assumes 3 lines
+  University Hall \\                    % {BUILDING} \\
+  PO Box 00000 \\                       % {ADDRESS} \\
+  City, ST 00000                        % {CITY, ST ZIP}
 }
 
-% -------------------------------
+% ======================================
 % FILTER TO ITEMS AFTER THIS YEAR
-% -------------------------------
+% ======================================
 
-% If you've been in the game a while or have a specific need to only
-% list publications / work products from the past XX years, set this
-% value to the 4-digit year one less than the first year you want.
+% If you want to list publications / work products only from the past
+% XX years, set this value to the 4-digit year that's one less than
+% the first year you want.
 %
 % If only 2015 - present ---> set to 2014
 
-\newcommand{\recentyear}{2000}  % artificially low year to include everything
+\newcommand{\recentyear}{1900}  % artificially low year to include everything
 
-% ==============================================================================
+% ------------------------------------------------------------------------------
 % HEADER STUFF (CAN LEAVE ALONE UNLESS YOU WANT TO PERSONALIZE)
-% ==============================================================================
+% ------------------------------------------------------------------------------
 
 % -------------------------------
 % Packages
 % -------------------------------
 
-% NOTE: You'll need to install non-free fonts; use instructions here
-% http://www.tug.org/fonts/getnonfreefonts/
-% sudo getnonfreefonts --sys garamond garamondx
-
-\usepackage[urw-garamond]{mathdesign}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage[margin=1in]{geometry}
-\usepackage[american]{babel}
-\usepackage{csquotes}
+\usepackage[margin=1in]{geometry} % for margins
+\usepackage[american]{babel}      % for language
+\usepackage{csquotes}             % idk, babel/biber like it
 \usepackage[style=apa,
 backend=biber,
 sortcites=true,
 sorting=ydmdnt,
-language=american]{biblatex}
-\DeclareLanguageMapping{american}{american-apa}
-\usepackage{hyperref}
-\usepackage{fancyhdr}
-\usepackage{titlesec}
-\usepackage{tabularx}
-\usepackage{datetime}
-\usepackage{graphicx}
-\usepackage[inline]{enumitem}
-\setlist{nolistsep}
+language=american]{biblatex}      % for reference sections
+\usepackage{hyperref}             % to add links
+\usepackage{fancyhdr}             % for better headers/footers
+\usepackage{titlesec}             % to adjust section headers
+\usepackage{tabularx}             % for fluid tables
+\usepackage{datetime}             % to make better date formate
+\usepackage[inline]{enumitem}     % more control over lists
 
 % -------------------------------
 % Macros
@@ -70,6 +81,10 @@ language=american]{biblatex}
 
 \newcommand{\RR}{\raggedright\arraybackslash} % left justified
 \newcommand{\RL}{\raggedleft\arraybackslash}  % right justified
+
+% for tables to keep consistent alignment across sections
+\newcolumntype{\twocols}{>{\RR}p{1.25in}>{\RR}X}
+\newcolumntype{\threecols}{>{\RR}p{1.25in}>{\RR}X>{\RL}p{1in}}
 
 % -------------------------------
 % BibLaTeX sorting scheme
@@ -120,6 +135,9 @@ language=american]{biblatex}
 % BibLaTeX options
 % -------------------------------
 
+% language mapping
+\DeclareLanguageMapping{american}{american-apa}
+
 % ignore addendum and note fields that are sometimes useful, but not here
 \DeclareSourcemap{
   \maps[datatype=bibtex]{
@@ -157,9 +175,6 @@ language=american]{biblatex}
 \DeclareFieldFormat[article,incollection]{title}%
 {\usebibmacro{string+doiurlisbn}{\mkbibquote{#1}}}
 
-% get rid of the period at the end of a bibliography section
-\renewcommand{\finentrypunct}{}
-
 % no letter for same year entries
 \defbibenvironment{mybib}
 {\list
@@ -171,7 +186,8 @@ language=american]{biblatex}
 {\endlist}
 {\clearfield{extradate}\item}
 
-% filter by year (only print those after year value in \recentyear macro)
+% filter by year (only print those after year value in \recentyear
+% macro above)
 \defbibcheck{recent}{
   \iffieldint{year}
   {\ifnumless{\thefield{year}}{\recentyear}
@@ -181,12 +197,16 @@ language=american]{biblatex}
 }
 
 % -------------------------------
-% Document style
+% Document options
 % -------------------------------
 
-% This determines how the sections are displayed. Adjust these as you
-% like. 
+% keep lists tight (no extra whitespace)
+\setlist{nolistsep}
 
+% This section determines how the sections are displayed. Adjust these
+% as you like using the titlesec package options.
+
+% section
 \titleformat{\section}[display]
 {\Large\bfseries}
 {\filleft\Large\sectiontitlename~\thesection}
@@ -194,6 +214,7 @@ language=american]{biblatex}
 {\vspace{-1ex}}
 []
 
+% subsections
 \titleformat{\subsection}[display]
 {\bfseries}
 {\filleft\subsectiontitlename~\thesubsection}
@@ -201,15 +222,13 @@ language=american]{biblatex}
 {}
 [\vspace{-1ex}]
 
+% subsubsections
 \titleformat{\subsubsection}[display]
 {}
 {\filleft\subsubsectiontitlename~\thesubsubsection}
 {}
 {}
 [\vspace{-1ex}]
-
-% new date style (1 January 2018 instead of January 1, 2018)
-\newdateformat{mydate}{\THEDAY \, \monthname[\THEMONTH] \THEYEAR}
 
 % -------------------------------
 % Headers and Footers
@@ -222,7 +241,7 @@ language=american]{biblatex}
 \fancypagestyle{first}{
    \fancyhead[R]{}
    \fancyhead[L]{}
-   \fancyfoot[R]{{\itshape Updated: \mydate\today}}
+   \fancyfoot[R]{{\itshape Updated: \today}}
    \fancyfoot[L]{}
    \fancyfoot[C]{}
    \renewcommand{\headrulewidth}{0.0pt}
@@ -231,23 +250,24 @@ language=american]{biblatex}
 \fancypagestyle{rest}{
    \fancyhead[R]{{\itshape \myname\, $\mid$ \thepage}}
    \fancyhead[L]{}
-   \fancyfoot[R]{{\itshape Updated: \mydate\today}}
+   \fancyfoot[R]{{\itshape Updated: \today}}
    \fancyfoot[L]{}
    \fancyfoot[C]{}
    \renewcommand{\headrulewidth}{0.0pt}
    \renewcommand{\footrulewidth}{0.0pt}}
 
-% -------------------------------
-% Bibliography
-% -------------------------------
-
-% path to your CV bibliography (.bib) file
-\addbibresource{./cv.bib}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % BEGIN DOCUMENT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+% ======================================
+% Bibliography
+% ======================================
+
+% path to your CV bibliography (.bib) file; should be same name as
+% your *.tex file if you want to use the makefile
+\addbibresource{./cv.bib}
+ 
 \pagestyle{rest}
 \begin{document}
 \thispagestyle{first}
@@ -255,6 +275,20 @@ language=american]{biblatex}
 % -------------------------------
 % Front page header
 % -------------------------------
+
+% Adjust this as necessary if you need to add or delete items from the
+% top. You can also create your own. The structure right now is:
+%
+% |----------------------------------------------|
+% |       Centered box across page for Name      |
+% |----------------------------------------------|
+% | Left-align 1/2 box    | Right-align 1/2 box  |
+% |                       |                      |
+% |  * building           |             phone *  |
+% |  * street             |           website *  |
+% |  * city, ST ZIP       |             email *  |
+% |----------------------------------------------|
+% _____________________ HRULE ___________________
 
 \hspace*{-\parindent}%
 \begin{center}
@@ -278,37 +312,39 @@ language=american]{biblatex}
 \end{center}
 
 % ==============================================================================
-% USER SETTINGS: CHANGE THINGS STARTING HERE
+% CV BODY: CHANGE THINGS STARTING HERE
 % ==============================================================================
 
-% ------------------------------------------------------------------------------
+% ======================================
 % APPOINTMENTS
-% ------------------------------------------------------------------------------
+% ======================================
+
+% Uncomment to add if you have a current appointment.
 
 % \section*{Academic Appointment}
-% \begin{tabularx}{\linewidth}{>{\RR}p{1in}>{\RR}X}
+% \begin{tabularx}{\linewidth}{\twocols}
 %   2018 - present & Assistant Professor of University, University of
 %   University City \\
 % \end{tabularx}
 
-% ------------------------------------------------------------------------------
+% ======================================
 % EDUCATION
-% ------------------------------------------------------------------------------
+% ======================================
 
 % Use tabularx (for flexible spacing) to align nicely
 
 \section*{Education}
-\begin{tabularx}{\linewidth}{>{\RR}p{1in}>{\RR}X>{\RL}p{1in}}
+\begin{tabularx}{\linewidth}{\threecols}
   YYYY&Program, University&Ph.D. \\ % or YYYY (expected)
   YYYY&Program, University&M.A. \\
   YYYY&Program, University&B.A. \\
 \end{tabularx}
 
-% ------------------------------------------------------------------------------
+% ======================================
 % RESEARCH INTERESTS
-% ------------------------------------------------------------------------------
+% ======================================
 
-% This will make a list of items separated by semi-colons
+% This will make a horizontal list of items separated by semi-colons. 
 
 \section*{Research Interests}
 
@@ -320,9 +356,9 @@ language=american]{biblatex}
 \item interest 5
 \end{itemize*}
 
-% ------------------------------------------------------------------------------
+% ======================================
 % PUBLICATIONS
-% ------------------------------------------------------------------------------
+% ======================================
 
 % Use the same keyword that you've placed in your bib file entry to
 % filter only those references you want to place here.
@@ -332,50 +368,68 @@ language=american]{biblatex}
 \nocite{*}                          % cite everything
 \printbibliography[heading = none,  % no heading (e.g., "References")
 keyword = article,                  % FILTER BY THIS KEYWORD
-env = mybib]                        % Use mybib style
+check = recent,                     % check year filter from above
+env = mybib]                        % use mybib style
 \end{refsection}
 
-% ------------------------------------------------------------------------------
+% ======================================
 % SUBMITTED PAPERS
-% ------------------------------------------------------------------------------
+% ======================================
 
 \begin{refsection}
 \section*{Submitted Papers}
 \nocite{*}
-\printbibliography[heading = none, keyword = submitted, env = mybib]
+\printbibliography[heading = none,
+keyword = submitted,
+check = recent,
+env = mybib]
 \end{refsection}
 
-% ------------------------------------------------------------------------------
+% ======================================
 % WORKING PAPERS
-% ------------------------------------------------------------------------------
+% ======================================
 
 \begin{refsection}
 \section*{Working Papers}
 \nocite{*}
-\printbibliography[heading = none, keyword = working, env = mybib]
+\printbibliography[heading = none,
+keyword = working,
+check = recent,
+env = mybib]
 \end{refsection}
 
-% ------------------------------------------------------------------------------
+% ======================================
 % PRESENTATIONS
-% ------------------------------------------------------------------------------
+% ======================================
 
-% This section makes use of the "check = recent" option, which you can
-% also do in the other sections.
+% This section differentiates between conference presentations and
+% invited presentations. If you only have one or the other, just
+% delete the subsections and have one PUBLICATIONS section.
 
 \section*{Presentations}
 \subsection*{Peer-reviewed conference presentations}
 \begin{refsection}
 \nocite{*}
 \printbibliography[heading = none,
-keyword = conference,               % must have "conference"... 
-keyword = peer,                     % and "peer" to differentiate from "invited"
+keyword = conference,               % must have "conference" AND 
+keyword = peer,                     % "peer" to differentiate from "invited"
 env = mybib,
-check = recent]                     % check year filter from above and only add
-\end{refsection}                    % those entries that come after
+check = recent]                     
+\end{refsection}                    
 
-% ------------------------------------------------------------------------------
+\subsection*{Invited presentations}
+\begin{refsection}
+\nocite{*}
+\printbibliography[heading = none,
+keyword = conference,               % must have "conference" AND 
+keyword = invited,                  % "invited" to differentiate from "peer"
+env = mybib,
+check = recent]                   
+\end{refsection}                   
+
+% ======================================
 % TEACHING EXPERIENCE
-% ------------------------------------------------------------------------------
+% ======================================
 
 % Add what makes sense for your field, but if you have links to course
 % materials online, be sure to incorporate them below. (NB: the
@@ -384,9 +438,8 @@ check = recent]                     % check year filter from above and only add
 \section*{Teaching}
 
 \subsection*{Instructor}
-
 \subsubsection*{University $\mid$ Department}
-\begin{tabularx}{\linewidth}{>{\RR}p{1in}>{\RR}X}
+\begin{tabularx}{\linewidth}{\twocols}
 YYYY&COURSE NUM: \textit{Course name} \\
 &\hspace{1em}One sentence description (optional)  \\
 &\hspace{1em}{\itshape Website/Course materials:}
@@ -395,29 +448,30 @@ YYYY&COURSE NUM: \textit{Course name} \\
 
 \subsection*{Teaching Assistant}
 \subsubsection*{University $\mid$ Department}
-\begin{tabularx}{\linewidth}{>{\RR}p{1in}>{\RR}X}
+\begin{tabularx}{\linewidth}{\twocols}
 YYYY & COURSE NUM: \textit{Course name} \\
 &\hspace{1em}	\textit{Instructor:} Instructor of record  \\
 \end{tabularx}
 
-% ------------------------------------------------------------------------------
+% ======================================
 % FELLOWSHIPS AND HONORS
-% ------------------------------------------------------------------------------
+% ======================================
 
-% Again, use a table for nicely aliged elements
+% Again, use a table for nicely aliged elements.
 
 \section*{Awards, Fellowships, and Honors}
-\begin{tabularx}{\linewidth}{>{\RR}p{1in}>{\RR}X>{\RL}p{.85in}}
+\begin{tabularx}{\linewidth}{\threecols}
 YYYY & Honor \\
 YYYY - YYYY & Fellowship & \$ AMOUNT \\ % if normal in your field
 
 \end{tabularx}
 
-% ------------------------------------------------------------------------------
+% ======================================
 % PROFESSIONAL MEMBERSHIPS
-% ------------------------------------------------------------------------------
+% ======================================
 
-% This time the list is separated by bullets
+% This time the list is separated by bullets as an example; use
+% whatever seems most aesthetically pleasing to your eyes.
 
 \section*{Professional Memberships}
 
@@ -429,9 +483,9 @@ YYYY - YYYY & Fellowship & \$ AMOUNT \\ % if normal in your field
 \item Organization 5
 \end{itemize*}
 
-% ------------------------------------------------------------------------------
+% ======================================
 % OTHER
-% ------------------------------------------------------------------------------
+% ======================================
 
 % Add other sections as needed...
 
