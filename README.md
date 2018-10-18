@@ -38,7 +38,7 @@ env = mybib]                        % Use mybib style
 
 #### `cv.pdf`
 
-![example](../images/example.png)
+![example](./images/example.png)
 
 Feel free to use and modify this template to suit your needs. In fact,
 you should modify it to meet the specific needs and norms of your
