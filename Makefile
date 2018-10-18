@@ -4,7 +4,7 @@ FILENAME = cv 			# basename of your cv and bib file (same name)
 TEX = pdflatex
 BIB = biber
 
-PDF = $(addsuffix .pdf, $(FILENAME))
+PDF = $(addsuffix .pdf, $(strip $(FILENAME)))
 EXT = .aux .bbl .bcf .blg .log .out .run.xml
 AUX = $(addprefix $(strip $(FILENAME)),$(strip $(EXT)))
 
