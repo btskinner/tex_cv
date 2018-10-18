@@ -1,5 +1,3 @@
-# Academic CV template using LaTeX and Biber
-
 Make an academic CV using LaTeX and Biber with this template. Rather
 than adding new publications, working papers, or presentations by
 hand, use this template to store your work products in a `.bib` file
