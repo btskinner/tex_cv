@@ -57,6 +57,8 @@ you update your CV in the future.
 * Works can be limited to only recent publications, presentations,
   etc., using the `\recentyear{}` macro in the top of the file.  
 * Non-automated sections use lists or tables to make clean layout.  
+* Comments throughout to help you know what to change in order to
+  personalize.  
 
 ## Compile
 
