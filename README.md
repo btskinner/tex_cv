@@ -48,7 +48,8 @@ env = mybib]                        % Use mybib style
 \end{refsection}
 ```
 
-You can get an entry in the complied `.pdf` file that looks like this:
+You can get an entry in the complied `.pdf` file that looks like this
+(note the link color: the title in the compiled CV links to the paper):
 
 
 ![example](https://raw.githubusercontent.com/btskinner/tex_cv/master/images/example.png)
@@ -119,8 +120,9 @@ make cleanall
 ## Integrate with GitHub pages
 
 An added benefit of building your CV this way is that you can reuse
-your `.bib` file to build your academic website and keep everything
-synced. For example, if you use GitHub Pages +
+your `.bib` file to build your academic website and keep everything in
+sync. For example, if you use GitHub Pages +
 [Jekyll](https://jekyllrb.com) to build your site, you can use the
 [jekyll-scholar](https://github.com/inukshuk/jekyll-scholar) extension
-to build a similar CV on your site ([it's how I do it](https://www.btskinner.me/publications/)).
+to build a similar CV on your site ([it's how I do
+it](https://www.btskinner.me/publications/)).
