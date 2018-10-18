@@ -1,16 +1,27 @@
-Make an academic CV using LaTeX and Biber with [this
-template](https://github.com/btskinner/tex_cv). Rather
-than adding new publications, working papers, or presentations by
-hand, use this template to store your work products in a `.bib` file
-just as you would a bibliography of references for a paper.
+[Make an academic CV using LaTeX and Biber with LaTeX +
+Biber](https://github.com/btskinner/tex_cv). Rather than adding new
+publications, working papers, or presentations by hand over time,
+store your work products in a `.bib` file---just as you would a
+bibliography of references for a paper---and compile your CV to
+update.
 
 Through selective use of the `Keywords` field in your `.bib` file
 (*e.g.*, `article`, `presentation`, `working`, `submitted`) and
 corresponding reference sections in your `.tex` file, automagically
 compile and update your CV in a consistent manner.
 
-#### `cv.bib`
+I don't edit my `.bib` by hand, but instead use
+[BibDesk](https://bibdesk.sourceforge.io), which comes with the MacTeX
+distribution. [JabRef](http://www.jabref.org) is another one that
+works across platforms.
+
+## Example setup
+
+Using an entry in the `.bib` file that looks like this:
+
 ```
+# cv.bib 
+
 @article{me2016paper_one,
 	Author = {Last, First M.},
 	Journal = {Journal of Academic Studies and Work},
@@ -23,25 +34,29 @@ compile and update your CV in a consistent manner.
 	Year = {2016}}
 ```
 
-#### `cv.tex`
+And a section in the `.tex` file that looks like this:
+
 ```
+# cv.tex
+
 \begin{refsection}
 \section*{Publications}
 \nocite{*}                          % cite everything
 \printbibliography[heading = none,  % no heading (e.g., "References")
-keyword = article,                  % FILTER BY THIS KEYWORD
+keyword = article,                  % FILTER BY < article > KEYWORD
 env = mybib]                        % Use mybib style
 \end{refsection}
 ```
 
-#### `cv.pdf`
+You can get an entry in the complied `.pdf` file that looks like this:
+
 
 ![example](https://raw.githubusercontent.com/btskinner/tex_cv/master/images/example.png)
 
-Feel free to use and modify this template to suit your needs. In fact,
-you should modify it to meet the specific needs and norms of your
-field. But hopefully the core code will be useful and save you time as
-you update your CV in the future. 
+Feel free to use and modify this template to suit your needs and/or
+the norms of your field. Move sections around, add or delete
+them. Regardless of the specific style, hopefully the core setup will
+be useful and save you time as you update your CV in the future.
 
 ## Features
 
@@ -100,17 +115,6 @@ To clean these files and delete the compiled pdf file, use
 ```shell
 make cleanall
 ```
-
-## NOTE
-
-You may need to download non-free fonts if you haven't already. Use the instructions
-[here](http://www.tug.org/fonts/getnonfreefonts/) to download and install the `getnonfreefonts` command. Then in the
-terminal do:
-
-```shell
-sudo getnonfreefonts --user garamond garamondx
-```
-to get the Garamond font used in the template.
 
 ## Integrate with GitHub pages
 
