@@ -5,13 +5,52 @@ than adding new publications, working papers, or presentations by
 hand, use this template to store your work products in a `.bib` file
 just as you would a bibliography of references for a paper.
 
-Through selective use of the `keyword` field in your `.bib` file
+Through selective use of the `Keywords` field in your `.bib` file
 (*e.g.*, `article`, `presentation`, `working`, `submitted`) and
 corresponding reference sections in your `.tex` file, automagically
 compile and update your CV in a consistent manner.
 
+#### `cv.bib`
+```
+@article{me2016paper_one,
+	Author = {Last, First M.},
+	Date-Modified = {2018-10-17 18:34:56 -0400},
+	Journal = {Journal of Academic Studies and Work},
+	Keywords = {article}, <!-- KEYWORD TO FILTER BY -->
+	Number = {2},
+	Pages = {30--45},
+	Title = {Paper one},
+	Url = {https://github.com/btskinner/tex_cv/blob/master/papers/last_paper_one.pdf},
+	Volume = {45},
+	Year = {2016}}
+```
+
+#### `cv.tex`
+```
+\begin{refsection}
+\section*{Publications}
+\nocite{*}                          % cite everything
+\printbibliography[heading = none,  % no heading (e.g., "References")
+keyword = article,                  % FILTER BY THIS KEYWORD
+env = mybib]                        % Use mybib style
+\end{refsection}
+```
+
+#### `cv.pdf`
+
+![example](../images/example.png)
+
+Feel free to use and modify this template to suit your needs. In fact,
+you should modify it to meet the specific needs and norms of your
+field. But hopefully the core code will be useful and save you time as
+you update your CV in the future. 
+
 ## Features
 
+* Name is added to header of pages after the first along with the page
+  number.  
+* A footer with the date of the last compilation will let you and
+  others know when it was last updated.  
 * Citations are in reverse chronological order, including by month if
   included (*e.g.*, October will be higher than May, even though it
   comes first alphabetically).  
@@ -19,7 +58,7 @@ compile and update your CV in a consistent manner.
   linked titles in citation.  
 * Works can be limited to only recent publications, presentations,
   etc., using the `\recentyear{}` macro in the top of the file.  
-* Non-automated sections use lists or tables to make clean layout.
+* Non-automated sections use lists or tables to make clean layout.  
 
 ## Compile
 
