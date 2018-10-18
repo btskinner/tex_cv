@@ -1,8 +1,12 @@
 \documentclass[11pt]{article}
 
-% ------------------------------------------------------------------------------
-% User settings
-% ------------------------------------------------------------------------------
+% ==============================================================================
+% USER SETTINGS: CHANGE THINGS HERE
+% ==============================================================================
+
+% -------------------------------
+% PERSONAL INFO
+% -------------------------------
 
 \newcommand{\myname}{First M. Last}     % your name
 \newcommand{\websiteurl}{{https://github.com/btskinner/tex_cv}} % your site url
@@ -15,9 +19,9 @@
   City, ST
 }
 
-% ------------------------------------------------------------------------------
-% Filter to items after this year
-% ------------------------------------------------------------------------------
+% -------------------------------
+% FILTER TO ITEMS AFTER THIS YEAR
+% -------------------------------
 
 % If you've been in the game a while or have a specific need to only
 % list publications / work products from the past XX years, set this
@@ -27,9 +31,13 @@
 
 \newcommand{\recentyear}{2000}  % artificially low year to include everything
 
-% ------------------------------------------------------------------------------
+% ==============================================================================
+% HEADER STUFF (CAN LEAVE ALONE UNLESS YOU WANT TO PERSONALIZE)
+% ==============================================================================
+
+% -------------------------------
 % Packages
-% ------------------------------------------------------------------------------
+% -------------------------------
 
 % NOTE: You'll need to install non-free fonts; use instructions here
 % http://www.tug.org/fonts/getnonfreefonts/
@@ -56,16 +64,16 @@ language=american]{biblatex}
 \usepackage[inline]{enumitem}
 \setlist{nolistsep}
 
-% ------------------------------------------------------------------------------
+% -------------------------------
 % Macros
-% ------------------------------------------------------------------------------
+% -------------------------------
 
 \newcommand{\RR}{\raggedright\arraybackslash} % left justified
 \newcommand{\RL}{\raggedleft\arraybackslash}  % right justified
 
-% ------------------------------------------------------------------------------
+% -------------------------------
 % BibLaTeX sorting scheme
-% ------------------------------------------------------------------------------
+% -------------------------------
 
 % Create a new sorting scheme that will sort in reverse chronological
 % order, taking months into account correctly (i.e., in chronological
@@ -108,9 +116,9 @@ language=american]{biblatex}
   }
 }
 
-% ------------------------------------------------------------------------------
+% -------------------------------
 % BibLaTeX options
-% ------------------------------------------------------------------------------
+% -------------------------------
 
 % ignore addendum and note fields that are sometimes useful, but not here
 \DeclareSourcemap{
@@ -152,9 +160,6 @@ language=american]{biblatex}
 % get rid of the period at the end of a bibliography section
 \renewcommand{\finentrypunct}{}
 
-% extra space between entries
-% \setlength\bibitemsep{1.5\itemsep}
-
 % no letter for same year entries
 \defbibenvironment{mybib}
 {\list
@@ -175,9 +180,9 @@ language=american]{biblatex}
   {\skipentry}
 }
 
-% ------------------------------------------------------------------------------
+% -------------------------------
 % Document style
-% ------------------------------------------------------------------------------
+% -------------------------------
 
 % This determines how the sections are displayed. Adjust these as you
 % like. 
@@ -206,9 +211,9 @@ language=american]{biblatex}
 % new date style (1 January 2018 instead of January 1, 2018)
 \newdateformat{mydate}{\THEDAY \, \monthname[\THEMONTH] \THEYEAR}
 
-% ------------------------------------------------------------------------------
+% -------------------------------
 % Headers and Footers
-% ------------------------------------------------------------------------------
+% -------------------------------
 
 % All pages after the first will have your name and page number in the
 % upper right corner; all pages will have the date of compilation (the
@@ -232,9 +237,9 @@ language=american]{biblatex}
    \renewcommand{\headrulewidth}{0.0pt}
    \renewcommand{\footrulewidth}{0.0pt}}
 
-% ------------------------------------------------------------------------------
+% -------------------------------
 % Bibliography
-% ------------------------------------------------------------------------------
+% -------------------------------
 
 % path to your CV bibliography (.bib) file
 \addbibresource{./cv.bib}
@@ -247,9 +252,9 @@ language=american]{biblatex}
 \begin{document}
 \thispagestyle{first}
 
-% ------------------------------------------------------------------------------
+% -------------------------------
 % Front page header
-% ------------------------------------------------------------------------------
+% -------------------------------
 
 \hspace*{-\parindent}%
 \begin{center}
@@ -271,6 +276,10 @@ language=american]{biblatex}
   \vspace{-.5em}
   \rule{\textwidth}{1pt}  
 \end{center}
+
+% ==============================================================================
+% USER SETTINGS: CHANGE THINGS STARTING HERE
+% ==============================================================================
 
 % ------------------------------------------------------------------------------
 % APPOINTMENTS
@@ -364,7 +373,6 @@ env = mybib,
 check = recent]                     % check year filter from above and only add
 \end{refsection}                    % those entries that come after
 
-
 % ------------------------------------------------------------------------------
 % TEACHING EXPERIENCE
 % ------------------------------------------------------------------------------
@@ -420,6 +428,12 @@ YYYY - YYYY & Fellowship & \$ AMOUNT \\ % if normal in your field
 \item Organization 4
 \item Organization 5
 \end{itemize*}
+
+% ------------------------------------------------------------------------------
+% OTHER
+% ------------------------------------------------------------------------------
+
+% Add other sections as needed...
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % END DOCUMENT
