@@ -53,11 +53,13 @@ you update your CV in the future.
   included (*e.g.*, October will be higher than May, even though it
   comes first alphabetically).  
 * Citations convert links in `Url` field (and `Doi` and `ISBN`) to
-  linked titles in citation.  
+  linked titles in citation. Put links to your publications or working
+  papers here and anyone with a digital copy of your CV will be able
+  to click on the title to access them.  
 * Works can be limited to only recent publications, presentations,
   etc., using the `\recentyear{}` macro in the top of the file.  
 * Non-automated sections use lists or tables to make clean layout.  
-* Comments throughout to help you know what to change in order to
+* Comments throughout `cv.tex` to help you know what to change in order to
   personalize.  
 
 ## Compile
