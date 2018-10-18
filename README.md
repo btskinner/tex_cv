@@ -13,7 +13,6 @@ compile and update your CV in a consistent manner.
 ```
 @article{me2016paper_one,
 	Author = {Last, First M.},
-	Date-Modified = {2018-10-17 18:34:56 -0400},
 	Journal = {Journal of Academic Studies and Work},
 	Keywords = {article}, <!-- KEYWORD TO FILTER BY -->
 	Number = {2},
