@@ -1,14 +1,22 @@
 # Academic CV template using LaTeX and Biber
 
-Make an academic CV using LaTeX and Biber using this template. Rather
+Make an academic CV using LaTeX and Biber with this template. Rather
 than adding new publications, working papers, or presentations by
 hand, use this template to store your work products in a `.bib` file
 just as you would a bibliography of references for a paper.
 
 Through selective use of the `keyword` field in your `.bib` file
-(*e.g., `article`, `presentation`, `working`, `submitted`) and
+(*e.g.*, `article`, `presentation`, `working`, `submitted`) and
 corresponding reference sections in your `.tex` file, automagically
 compile and update your CV in a consistent manner.
+
+## Features
+
+* Citations are in reverse chronological order, including by month if
+  included (*e.g.*, October will be higher than May, even though it
+  comes first alphabetically).  
+* Citations convert links in `Url` field (and `Doi` and `ISBN`) to
+  linked titles in citation.  
 
 ## Compile
 
@@ -48,6 +56,18 @@ To clean these files and delete the compiled pdf file, use
 ```shell
 make cleanall
 ```
+
+## NOTE
+
+You may need to download non-free fonts if you haven't already.  
+Use the instructions here,
+[http://www.tug.org/fonts/getnonfreefonts/](http://www.tug.org/fonts/getnonfreefonts/) to download and install
+the `getnonfreefonts` command. Then use:
+
+```shell
+sudo getnonfreefonts --user garamond garamondx
+```
+to get the Garamond font used in the template.
 
 ## Integrate with GitHub pages
 
