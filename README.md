@@ -1,4 +1,5 @@
-Make an academic CV using LaTeX and Biber with this template. Rather
+Make an academic CV using LaTeX and Biber with [this
+template](https://github.com/btskinner/tex_cv). Rather
 than adding new publications, working papers, or presentations by
 hand, use this template to store your work products in a `.bib` file
 just as you would a bibliography of references for a paper.
@@ -36,7 +37,7 @@ env = mybib]                        % Use mybib style
 
 #### `cv.pdf`
 
-![example](./images/example.png)
+![example](https://github.com/btskinner/tex_cv/blob/master/images/example.png)
 
 Feel free to use and modify this template to suit your needs. In fact,
 you should modify it to meet the specific needs and norms of your
