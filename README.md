@@ -37,7 +37,7 @@ env = mybib]                        % Use mybib style
 
 #### `cv.pdf`
 
-![example](https://github.com/btskinner/tex_cv/blob/master/images/example.png)
+![example](https://github.com/btskinner/tex_cv/raw/master/images/example.png)
 
 Feel free to use and modify this template to suit your needs. In fact,
 you should modify it to meet the specific needs and norms of your
