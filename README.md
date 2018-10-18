@@ -62,9 +62,8 @@ make cleanall
 
 ## NOTE
 
-You may need to download non-free fonts if you haven't already. Use the instructions here,
-[http://www.tug.org/fonts/getnonfreefonts/](http://www.tug.org/fonts/getnonfreefonts/)
-to download and install the `getnonfreefonts` command. Then in the
+You may need to download non-free fonts if you haven't already. Use the instructions
+[here](http://www.tug.org/fonts/getnonfreefonts/) to download and install the `getnonfreefonts` command. Then in the
 terminal do:
 
 ```shell
@@ -79,4 +78,4 @@ your `.bib` file to build your academic website and keep everything
 synced. For example, if you use GitHub Pages +
 [Jekyll](https://jekyllrb.com) to build your site, you can use the
 [jekyll-scholar](https://github.com/inukshuk/jekyll-scholar) extension
-to build a similar CV on your site (it's how I do it).
+to build a similar CV on your site ([it's how I do it](https://www.btskinner.me/publications/)).
