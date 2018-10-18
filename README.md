@@ -10,11 +10,6 @@ Through selective use of the `Keywords` field in your `.bib` file
 corresponding reference sections in your `.tex` file, automagically
 compile and update your CV in a consistent manner.
 
-I don't edit my `.bib` by hand, but instead use
-[BibDesk](https://bibdesk.sourceforge.io), which comes with the MacTeX
-distribution. [JabRef](http://www.jabref.org) is another one that
-works across platforms.
-
 ## Example setup
 
 Using an entry in the `.bib` file that looks like this:
@@ -58,6 +53,11 @@ Feel free to use and modify this template to suit your needs and/or
 the norms of your field. Move sections around, add or delete
 them. Regardless of the specific style, hopefully the core setup will
 be useful and save you time as you update your CV in the future.
+
+For reference, I don't edit my `.bib` by hand, but instead use
+[BibDesk](https://bibdesk.sourceforge.io), which comes with the MacTeX
+distribution. [JabRef](http://www.jabref.org) is another one that
+works across platforms.
 
 ## Features
 
