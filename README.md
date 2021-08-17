@@ -78,6 +78,17 @@ works across platforms.
 * Comments throughout `cv.tex` to help you know what to change in order to
   personalize.  
 
+## Numbered entries
+
+If you want numbered entries, you can switch to the `numbered`
+branch. The changes noted in [issue
+1](https://github.com/btskinner/tex_cv/issues/1) have been made to
+`cv.tex` in this branch. Just switch to the other branch first using:
+
+``` shell
+git checkout numbered
+```
+
 ## Compile
 
 ### Manually
